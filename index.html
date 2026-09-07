@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maryam Tazrakine — Art, Writing & Creative Work</title>
+
+    <meta name="description" content="A creative space for visual art, writing, music, and ideas.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f1ea;
+            color: #171717;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(245, 241, 234, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #171717;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            opacity: 0.5;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 140px 8% 80px;
+        }
+
+        .small-title {
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: clamp(70px, 13vw, 180px);
+            font-weight: normal;
+            line-height: 0.85;
+            letter-spacing: -7px;
+            max-width: 1100px;
+        }
+
+        .hero-text {
+            max-width: 500px;
+            margin-top: 50px;
+            font-size: 21px;
+        }
+
+        section {
+            padding: 130px 8%;
+        }
+
+        .section-number {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            opacity: 0.6;
+        }
+
+        h2 {
+            font-size: clamp(45px, 7vw, 90px);
+            font-weight: normal;
+            letter-spacing: -3px;
+            margin-bottom: 50px;
+        }
+
+        .intro {
+            max-width: 750px;
+            font-size: 24px;
+        }
+
+        .works {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .work {
+            min-height: 350px;
+            border: 1px solid #171717;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: 0.3s ease;
+        }
+
+        .work:hover {
+            background: #171717;
+            color: #f5f1ea;
+        }
+
+        .work h3 {
+            font-size: 32px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .work p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .writing {
+            max-width: 850px;
+        }
+
+        .writing-item {
+            border-top: 1px solid #171717;
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .writing-item h3 {
+            font-size: 30px;
+            font-weight: normal;
+        }
+
+        .writing-item span {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .contact {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact a {
+            color: #171717;
+            font-size: clamp(35px, 6vw, 80px);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 8px;
+        }
+
+        footer {
+            padding: 40px 8%;
+            border-top: 1px solid #171717;
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 20px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 9px;
+            }
+
+            .hero {
+                padding: 130px 7% 70px;
+            }
+
+            h1 {
+                letter-spacing: -4px;
+            }
+
+            section {
+                padding: 90px 7%;
+            }
+
+            .works {
+                grid-template-columns: 1fr;
+            }
+
+            .work {
+                min-height: 280px;
+            }
+
+            .writing-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">MARYAM</div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="small-title">
+                Art · Writing · Music · Ideas
+            </div>
+
+            <h1>
+                Maryam<br>
+                Tazrakine
+            </h1>
+
+            <p class="hero-text">
+                A space for things created, felt, written and imagined.
+            </p>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="section-number">
+                01 — ABOUT
+            </div>
+
+            <h2>
+                A world<br>
+                in progress.
+            </h2>
+
+            <p class="intro">
+                This is a collection of creative work, thoughts and projects.
+                A place where art meets writing, music meets emotion,
+                and ideas are allowed to become something real.
+            </p>
+
+        </section>
+
+
+        <!-- WORK -->
+
+        <section id="work">
+
+            <div class="section-number">
+                02 — WORK
+            </div>
+
+            <h2>
+                Selected<br>
+                work.
+            </h2>
+
+            <div class="works">
+
+                <div class="work">
+                    <h3>Visual Art</h3>
+                    <p>Paintings · Images · Visual experiments</p>
+                </div>
+
+                <div class="work">
+                    <h3>Music</h3>
+                    <p>Songs · Videos · MGR</p>
+                </div>
+
+                <div class="work">
+                    <h3>Creative Projects</h3>
+                    <p>Ideas · Experiments · Collaborations</p>
+                </div>
+
+                <div class="work">
+                    <h3>Stories</h3>
+                    <p>Personal work · Observations · Life</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WRITING -->
+
+        <section id="writing">
+
+            <div class="section-number">
+                03 — WRITING
+            </div>
+
+            <h2>
+                Words<br>
+                that stay.
+            </h2>
+
+            <div class="writing">
+
+                <div class="writing-item">
+                    <h3>Essays & Thoughts</h3>
+                    <span>READ</span>
+                </div>
+
+                <div class="writing-item">
+                    <h3>Notes on Being Human</h3>
+                    <span>READ</span>
+                </div>
+
+                <div class="writing-item">
+                    <h3>Fragments</h3>
+                    <span>READ</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact" class="contact">
+
+            <div class="section-number">
+                04 — CONTACT
+            </div>
+
+            <h2>
+                Let's make<br>
+                something.
+            </h2>
+
+            <a href="mailto:maryamtazrakine@gmail.com">
+                maryamtazrakine@gmail.com
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            © 2026 Maryam Tazrakine
+        </div>
+
+        <div>
+            Made with curiosity.
+        </div>
+
+    </footer>
+
+</body>
+</html>
