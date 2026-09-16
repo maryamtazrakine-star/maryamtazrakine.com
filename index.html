@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +9,14 @@
     <meta name="description" content="A creative space for visual art, writing, music, and ideas.">
 
     <style>
+
         :root {
             --cream: #f4efe6;
             --paper: #fbf8f3;
             --brown: #3f332b;
             --muted: #75685d;
             --burgundy: #733f42;
+            --blue: #314b59;
             --line: #d8cfc2;
         }
 
@@ -42,11 +43,6 @@
             text-decoration: none;
         }
 
-        a:focus-visible {
-            outline: 2px solid var(--burgundy);
-            outline-offset: 5px;
-        }
-
         /* NAVIGATION */
 
         nav {
@@ -55,10 +51,13 @@
             left: 0;
             width: 100%;
             z-index: 10;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 26px 8%;
+
+            padding: 25px 8%;
+
             background: rgba(244, 239, 230, 0.94);
             border-bottom: 1px solid var(--line);
         }
@@ -71,7 +70,7 @@
 
         nav ul {
             display: flex;
-            gap: 28px;
+            gap: 30px;
             list-style: none;
         }
 
@@ -89,14 +88,27 @@
 
         .hero {
             min-height: 100vh;
+
             display: flex;
             align-items: center;
-            padding: 150px 8% 100px;
+
+            padding: 130px 8% 90px;
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1250px;
+
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            align-items: center;
+            gap: 90px;
+
+            margin: 0 auto;
         }
 
         .hero-content {
-            width: 100%;
-            max-width: 1100px;
+            max-width: 700px;
         }
 
         .eyebrow {
@@ -104,22 +116,25 @@
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 3px;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
 
         h1 {
-            max-width: 800px;
+            max-width: 700px;
+
             font-family: Georgia, serif;
-            font-size: clamp(48px, 7vw, 88px);
+            font-size: clamp(48px, 6vw, 78px);
             font-weight: normal;
             letter-spacing: -3px;
             line-height: 1.04;
+
             margin-bottom: 28px;
         }
 
         .hero-description {
-            max-width: 510px;
+            max-width: 500px;
+
             color: var(--muted);
             font-size: 18px;
             line-height: 1.8;
@@ -128,27 +143,68 @@
         .hero-bottom {
             display: flex;
             align-items: center;
-            gap: 25px;
-            margin-top: 48px;
+            flex-wrap: wrap;
+            gap: 22px;
+
+            margin-top: 45px;
         }
 
         .hero-button {
             display: inline-block;
+
             padding: 14px 24px;
+
             border-radius: 30px;
+
             background: var(--burgundy);
-            color: #ffffff;
+            color: white;
+
             font-size: 13px;
-            transition: background 0.2s ease;
+
+            transition: all 0.2s ease;
         }
 
         .hero-button:hover {
             background: var(--brown);
+            transform: translateY(-2px);
         }
 
         .hero-note {
+            max-width: 280px;
+
             color: var(--muted);
             font-size: 12px;
+        }
+
+        /* HERO IMAGE */
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+
+            overflow: hidden;
+
+            border-radius: 3px;
+
+            background: #ddd4c7;
+
+            box-shadow: 0 15px 40px rgba(63, 51, 43, 0.10);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+            object-position: center 45%;
+
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
         }
 
         /* SECTIONS */
@@ -160,24 +216,30 @@
 
         .section-number {
             color: var(--burgundy);
+
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 3px;
+
             margin-bottom: 25px;
         }
 
         h2 {
             max-width: 800px;
+
             font-family: Georgia, serif;
             font-size: clamp(42px, 6vw, 76px);
             font-weight: normal;
+
             letter-spacing: -2px;
             line-height: 1.05;
+
             margin-bottom: 35px;
         }
 
         .intro {
             max-width: 700px;
+
             color: var(--muted);
             font-size: 21px;
             line-height: 1.8;
@@ -193,24 +255,31 @@
 
         .work-card {
             min-height: 230px;
+
             padding: 30px;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
             background: var(--paper);
+
             border: 1px solid var(--line);
             border-radius: 4px;
-            transition: transform 0.2s ease;
+
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .work-card:hover {
             transform: translateY(-4px);
+            border-color: var(--burgundy);
         }
 
         .work-card h3 {
             font-family: Georgia, serif;
             font-size: 30px;
             font-weight: normal;
+
             margin-bottom: 10px;
         }
 
@@ -221,9 +290,11 @@
 
         .work-link {
             color: var(--burgundy);
+
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
+
             margin-top: 30px;
         }
 
@@ -235,10 +306,13 @@
 
         .writing-item {
             padding: 28px 0;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             gap: 30px;
+
             border-bottom: 1px solid var(--line);
         }
 
@@ -255,6 +329,7 @@
         .writing-item p {
             color: var(--muted);
             font-size: 13px;
+
             margin-top: 5px;
         }
 
@@ -267,6 +342,7 @@
 
         .contact {
             min-height: 65vh;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -278,21 +354,28 @@
 
         .contact-text {
             max-width: 500px;
+
             color: var(--muted);
             font-size: 18px;
+
             margin-bottom: 30px;
         }
 
         .contact a.email {
             display: inline-block;
+
             width: fit-content;
             max-width: 100%;
+
             color: var(--burgundy);
+
             font-size: clamp(18px, 2.8vw, 34px);
             line-height: 1.4;
+
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 7px;
+
             overflow-wrap: anywhere;
         }
 
@@ -304,23 +387,44 @@
 
         footer {
             padding: 30px 8%;
+
             display: flex;
             justify-content: space-between;
+
             gap: 20px;
+
             border-top: 1px solid var(--line);
+
             color: var(--muted);
             font-size: 12px;
         }
 
         /* MOBILE */
 
+        @media (max-width: 850px) {
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+            .hero-image {
+                max-width: 500px;
+            }
+        }
+
         @media (max-width: 700px) {
+
             nav {
                 padding: 22px 7%;
             }
 
             nav ul {
-                gap: 12px;
+                gap: 13px;
             }
 
             nav a {
@@ -334,7 +438,11 @@
 
             .hero {
                 min-height: auto;
-                padding: 150px 7% 100px;
+                padding: 135px 7% 85px;
+            }
+
+            .hero-inner {
+                gap: 45px;
             }
 
             h1 {
@@ -346,9 +454,8 @@
                 font-size: 16px;
             }
 
-            .hero-bottom {
-                flex-wrap: wrap;
-                gap: 15px;
+            .hero-image {
+                width: 100%;
             }
 
             section {
@@ -392,12 +499,16 @@
                 gap: 8px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
+    <!-- NAVIGATION -->
+
     <nav>
+
         <a href="#" class="logo">MARYAM</a>
 
         <ul>
@@ -406,145 +517,276 @@
             <li><a href="#writing">Writing</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
     </nav>
+
 
     <main>
 
         <!-- HERO -->
 
         <section class="hero">
-            <div class="hero-content">
-                <div class="eyebrow">Writer · Artist · Creator</div>
 
-                <h1>Maryam Tazrakine</h1>
+            <div class="hero-inner">
 
-                <p class="hero-description">
-                    Living by art. I am the art. I am the artist.
-                </p>
+                <div class="hero-content">
 
-                <div class="hero-bottom">
-                    <a href="#work" class="hero-button">Explore my work ↗</a>
-                    <span class="hero-note">A space for things created, felt, written and imagined.</span>
+                    <div class="eyebrow">
+                        Writer · Artist · Creator
+                    </div>
+
+                    <h1>
+                        Maryam Tazrakine
+                    </h1>
+
+                    <p class="hero-description">
+                        Living by art. I am the art. I am the artist.
+                    </p>
+
+                    <div class="hero-bottom">
+
+                        <a href="#work" class="hero-button">
+                            Explore my work ↗
+                        </a>
+
+                        <span class="hero-note">
+                            A space for things created, felt, written and imagined.
+                        </span>
+
+                    </div>
+
                 </div>
+
+
+                <div class="hero-image">
+
+                    <img
+                        src="me.jpg"
+                        alt="Maryam Tazrakine"
+                    >
+
+                </div>
+
             </div>
+
         </section>
+
 
         <!-- ABOUT -->
 
         <section id="about">
-            <div class="section-number">01 / About</div>
 
-            <h2>A little about me.</h2>
+            <div class="section-number">
+                01 / About
+            </div>
+
+            <h2>
+                A little about me.
+            </h2>
 
             <p class="intro">
                 I am Maryam, a writer, artist, and creator exploring ideas,
                 emotions, music, and the beauty of everyday life.
             </p>
+
         </section>
+
 
         <!-- WORK -->
 
         <section id="work">
-            <div class="section-number">02 / Work</div>
 
-            <h2>Things I create.</h2>
+            <div class="section-number">
+                02 / Work
+            </div>
+
+            <h2>
+                Things I create.
+            </h2>
 
             <div class="works">
 
                 <div class="work-card">
+
                     <div>
                         <h3>Music</h3>
-                        <p>Melodies, songs, and creative projects.</p>
+
+                        <p>
+                            Melodies, songs, and creative projects.
+                        </p>
                     </div>
-                    <div class="work-link">EXPLORE ↗</div>
+
+                    <div class="work-link">
+                        EXPLORE ↗
+                    </div>
+
                 </div>
 
+
                 <div class="work-card">
+
                     <div>
                         <h3>Art</h3>
-                        <p>Visual ideas, photography, and expression.</p>
+
+                        <p>
+                            Visual ideas, photography, and expression.
+                        </p>
                     </div>
-                    <div class="work-link">EXPLORE ↗</div>
+
+                    <div class="work-link">
+                        EXPLORE ↗
+                    </div>
+
                 </div>
 
+
                 <div class="work-card">
+
                     <div>
                         <h3>Writing</h3>
-                        <p>Thoughts, poetry, and stories.</p>
+
+                        <p>
+                            Thoughts, poetry, and stories.
+                        </p>
                     </div>
-                    <div class="work-link">EXPLORE ↗</div>
+
+                    <div class="work-link">
+                        EXPLORE ↗
+                    </div>
+
                 </div>
 
+
                 <div class="work-card">
+
                     <div>
                         <h3>Ideas</h3>
-                        <p>Projects, experiments, and imagination.</p>
+
+                        <p>
+                            Projects, experiments, and imagination.
+                        </p>
                     </div>
-                    <div class="work-link">EXPLORE ↗</div>
+
+                    <div class="work-link">
+                        EXPLORE ↗
+                    </div>
+
                 </div>
 
             </div>
+
         </section>
+
 
         <!-- WRITING -->
 
         <section id="writing">
-            <div class="section-number">03 / Writing</div>
 
-            <h2>Words from my mind.</h2>
+            <div class="section-number">
+                03 / Writing
+            </div>
+
+            <h2>
+                Words from my mind.
+            </h2>
 
             <div class="writing">
 
                 <div class="writing-item">
+
                     <div>
                         <h3>People</h3>
-                        <p>A reflection on life and human connection.</p>
+
+                        <p>
+                            A reflection on life and human connection.
+                        </p>
                     </div>
-                    <span class="writing-arrow">↗</span>
+
+                    <span class="writing-arrow">
+                        ↗
+                    </span>
+
                 </div>
 
+
                 <div class="writing-item">
+
                     <div>
                         <h3>Is it me</h3>
-                        <p>A creative project exploring identity.</p>
+
+                        <p>
+                            A creative project exploring identity.
+                        </p>
                     </div>
-                    <span class="writing-arrow">↗</span>
+
+                    <span class="writing-arrow">
+                        ↗
+                    </span>
+
                 </div>
 
+
                 <div class="writing-item">
+
                     <div>
                         <h3>More to come</h3>
-                        <p>New thoughts and stories will appear here.</p>
+
+                        <p>
+                            New thoughts and stories will appear here.
+                        </p>
                     </div>
-                    <span class="writing-arrow">↗</span>
+
+                    <span class="writing-arrow">
+                        ↗
+                    </span>
+
                 </div>
 
             </div>
+
         </section>
+
 
         <!-- CONTACT -->
 
         <section id="contact" class="contact">
-            <div class="section-number">04 / Contact</div>
 
-            <h2>Let's create something.</h2>
+            <div class="section-number">
+                04 / Contact
+            </div>
+
+            <h2>
+                Let's create something.
+            </h2>
 
             <p class="contact-text">
                 For collaborations, creative projects, or just to say hello.
             </p>
 
-            <a class="email" href="mailto:your@email.com">
+            <a
+                class="email"
+                href="mailto:your@email.com"
+            >
                 your@email.com
             </a>
+
         </section>
 
     </main>
 
+
     <!-- FOOTER -->
 
     <footer>
-        <div>© 2026 Maryam Tazrakine</div>
-        <div>Made with creativity.</div>
+
+        <div>
+            © 2026 Maryam Tazrakine
+        </div>
+
+        <div>
+            Made with creativity.
+        </div>
+
     </footer>
 
 </body>
