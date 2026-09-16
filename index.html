@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,14 @@
     <meta name="description" content="A creative space for visual art, writing, music, and ideas.">
 
     <style>
+        :root {
+            --cream: #f4efe6;
+            --paper: #fbf8f3;
+            --brown: #3f332b;
+            --muted: #75685d;
+            --burgundy: #733f42;
+            --line: #d8cfc2;
+        }
 
         * {
             margin: 0;
@@ -18,155 +27,205 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
-            background: #f5f1ea;
-            color: #171717;
-            font-family: Georgia, "Times New Roman", serif;
+            background: var(--cream);
+            color: var(--brown);
+            font-family: Arial, sans-serif;
             line-height: 1.6;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--burgundy);
+            outline-offset: 5px;
+        }
 
         /* NAVIGATION */
 
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            padding: 25px 6%;
+            z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(245, 241, 234, 0.92);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+            padding: 26px 8%;
+            background: rgba(244, 239, 230, 0.94);
+            border-bottom: 1px solid var(--line);
         }
 
         .logo {
-            font-size: 20px;
-            letter-spacing: 2px;
+            font-size: 14px;
             font-weight: bold;
+            letter-spacing: 4px;
         }
 
         nav ul {
             display: flex;
+            gap: 28px;
             list-style: none;
-            gap: 30px;
         }
 
         nav a {
-            color: #171717;
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            color: var(--muted);
+            font-size: 13px;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
-            opacity: 0.5;
+            color: var(--burgundy);
         }
-
 
         /* HERO */
 
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 140px 8% 80px;
+            align-items: center;
+            padding: 150px 8% 100px;
         }
 
-        .small-title {
-            font-family: Arial, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 11px;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: clamp(70px, 13vw, 180px);
-            font-weight: normal;
-            line-height: 0.85;
-            letter-spacing: -7px;
+        .hero-content {
+            width: 100%;
             max-width: 1100px;
         }
 
-        .hero-text {
-            max-width: 500px;
-            margin-top: 50px;
-            font-size: 21px;
+        .eyebrow {
+            color: var(--burgundy);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
         }
 
+        h1 {
+            max-width: 800px;
+            font-family: Georgia, serif;
+            font-size: clamp(48px, 7vw, 88px);
+            font-weight: normal;
+            letter-spacing: -3px;
+            line-height: 1.04;
+            margin-bottom: 28px;
+        }
+
+        .hero-description {
+            max-width: 510px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .hero-bottom {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-top: 48px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 30px;
+            background: var(--burgundy);
+            color: #ffffff;
+            font-size: 13px;
+            transition: background 0.2s ease;
+        }
+
+        .hero-button:hover {
+            background: var(--brown);
+        }
+
+        .hero-note {
+            color: var(--muted);
+            font-size: 12px;
+        }
 
         /* SECTIONS */
 
         section {
-            padding: 130px 8%;
+            padding: 110px 8%;
+            border-top: 1px solid var(--line);
         }
 
         .section-number {
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            letter-spacing: 4px;
-            margin-bottom: 32px;
-            opacity: 0.75;
-            text-transform: uppercase;
-            font-weight: 500;
+            color: var(--burgundy);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
         }
 
         h2 {
-            font-size: clamp(45px, 7vw, 90px);
+            max-width: 800px;
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 6vw, 76px);
             font-weight: normal;
-            letter-spacing: -3px;
-            line-height: 0.95;
-            margin-bottom: 50px;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 35px;
         }
 
         .intro {
-            max-width: 750px;
-            font-size: 24px;
+            max-width: 700px;
+            color: var(--muted);
+            font-size: 21px;
+            line-height: 1.8;
         }
-
 
         /* WORK */
 
         .works {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            gap: 22px;
         }
 
-        .work {
-            min-height: 350px;
-            border: 1px solid #171717;
-            padding: 35px;
+        .work-card {
+            min-height: 230px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            transition: 0.3s ease;
+            justify-content: space-between;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            transition: transform 0.2s ease;
         }
 
-        .work:hover {
-            background: #171717;
-            color: #f5f1ea;
+        .work-card:hover {
+            transform: translateY(-4px);
         }
 
-        .work h3 {
-            font-size: 32px;
+        .work-card h3 {
+            font-family: Georgia, serif;
+            font-size: 30px;
             font-weight: normal;
             margin-bottom: 10px;
         }
 
-        .work p {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            letter-spacing: 1px;
+        .work-card p {
+            color: var(--muted);
+            font-size: 14px;
         }
 
+        .work-link {
+            color: var(--burgundy);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
 
         /* WRITING */
 
@@ -175,79 +234,89 @@
         }
 
         .writing-item {
-            border-top: 1px solid #171717;
-            padding: 30px 0;
+            padding: 28px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 30px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .writing-item:first-child {
+            border-top: 1px solid var(--line);
         }
 
         .writing-item h3 {
-            font-size: 30px;
+            font-family: Georgia, serif;
+            font-size: 27px;
             font-weight: normal;
         }
 
-        .writing-item span {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            opacity: 0.6;
+        .writing-item p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 5px;
         }
 
+        .writing-arrow {
+            color: var(--burgundy);
+            font-size: 20px;
+        }
 
         /* CONTACT */
 
         .contact {
-            min-height: 80vh;
+            min-height: 65vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .contact h2 {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-        .contact a {
+        .contact-text {
+            max-width: 500px;
+            color: var(--muted);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .contact a.email {
             display: inline-block;
             width: fit-content;
             max-width: 100%;
-            color: #171717;
-            font-family: Arial, sans-serif;
-            font-size: clamp(18px, 2.8vw, 36px);
-            letter-spacing: 0.5px;
-            line-height: 1.3;
+            color: var(--burgundy);
+            font-size: clamp(18px, 2.8vw, 34px);
+            line-height: 1.4;
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 7px;
             overflow-wrap: anywhere;
         }
 
-        .contact a:hover {
-            opacity: 0.5;
+        .contact a.email:hover {
+            opacity: 0.65;
         }
-
 
         /* FOOTER */
 
         footer {
-            padding: 40px 8%;
-            border-top: 1px solid #171717;
+            padding: 30px 8%;
             display: flex;
             justify-content: space-between;
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 1px;
+            gap: 20px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
         }
-
 
         /* MOBILE */
 
         @media (max-width: 700px) {
-
             nav {
-                padding: 20px 5%;
+                padding: 22px 7%;
             }
 
             nav ul {
@@ -255,79 +324,81 @@
             }
 
             nav a {
-                font-size: 9px;
+                font-size: 11px;
+            }
+
+            .logo {
+                font-size: 12px;
+                letter-spacing: 2px;
             }
 
             .hero {
-                padding: 130px 7% 70px;
+                min-height: auto;
+                padding: 150px 7% 100px;
             }
 
             h1 {
-                letter-spacing: -4px;
+                font-size: clamp(44px, 12vw, 65px);
+                letter-spacing: -1.5px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-bottom {
+                flex-wrap: wrap;
+                gap: 15px;
             }
 
             section {
-                padding: 90px 7%;
-            }
-
-            .section-number {
-                font-size: 13px;
-                letter-spacing: 3px;
-                margin-bottom: 25px;
+                padding: 85px 7%;
             }
 
             h2 {
-                letter-spacing: -2px;
+                letter-spacing: -1px;
             }
 
             .intro {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .works {
                 grid-template-columns: 1fr;
             }
 
-            .work {
-                min-height: 280px;
+            .work-card {
+                min-height: 200px;
             }
 
             .writing-item {
-                flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
             }
 
             .writing-item h3 {
-                font-size: 25px;
+                font-size: 24px;
+            }
+
+            .writing-arrow {
+                flex-shrink: 0;
             }
 
             .contact {
-                min-height: 70vh;
-            }
-
-            .contact a {
-                font-size: 18px;
-                line-height: 1.4;
+                min-height: 55vh;
             }
 
             footer {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
             }
         }
-
     </style>
 </head>
-
 
 <body>
 
     <nav>
-
-        <div class="logo">
-            MARYAM
-        </div>
+        <a href="#" class="logo">MARYAM</a>
 
         <ul>
             <li><a href="#about">About</a></li>
@@ -335,172 +406,146 @@
             <li><a href="#writing">Writing</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-
     </nav>
 
-
     <main>
-
 
         <!-- HERO -->
 
         <section class="hero">
+            <div class="hero-content">
+                <div class="eyebrow">Writer · Artist · Creator</div>
 
-            <div class="small-title">
-                Art · Writing · Music · Ideas
+                <h1>Maryam Tazrakine</h1>
+
+                <p class="hero-description">
+                    Living by art. I am the art. I am the artist.
+                </p>
+
+                <div class="hero-bottom">
+                    <a href="#work" class="hero-button">Explore my work ↗</a>
+                    <span class="hero-note">A space for things created, felt, written and imagined.</span>
+                </div>
             </div>
-
-            <h1>
-                Maryam<br>
-                Tazrakine
-            </h1>
-
-            <p class="hero-text">
-                A space for things created, felt, written and imagined.
-            </p>
-
         </section>
-
-
 
         <!-- ABOUT -->
 
         <section id="about">
+            <div class="section-number">01 / About</div>
 
-            <div class="section-number">
-                01 — ABOUT
-            </div>
-
-            <h2>
-                A world<br>
-                in progress.
-            </h2>
+            <h2>A little about me.</h2>
 
             <p class="intro">
-                This is a collection of creative work, thoughts and projects.
-                A place where art meets writing, music meets emotion,
-                and ideas are allowed to become something real.
+                I am Maryam, a writer, artist, and creator exploring ideas,
+                emotions, music, and the beauty of everyday life.
             </p>
-
         </section>
-
-
 
         <!-- WORK -->
 
         <section id="work">
+            <div class="section-number">02 / Work</div>
 
-            <div class="section-number">
-                02 — WORK
-            </div>
-
-            <h2>
-                Selected<br>
-                work.
-            </h2>
+            <h2>Things I create.</h2>
 
             <div class="works">
 
-                <div class="work">
-                    <h3>Visual Art</h3>
-                    <p>Paintings · Images · Visual experiments</p>
+                <div class="work-card">
+                    <div>
+                        <h3>Music</h3>
+                        <p>Melodies, songs, and creative projects.</p>
+                    </div>
+                    <div class="work-link">EXPLORE ↗</div>
                 </div>
 
-                <div class="work">
-                    <h3>Music</h3>
-                    <p>Songs · Videos · MGR</p>
+                <div class="work-card">
+                    <div>
+                        <h3>Art</h3>
+                        <p>Visual ideas, photography, and expression.</p>
+                    </div>
+                    <div class="work-link">EXPLORE ↗</div>
                 </div>
 
-                <div class="work">
-                    <h3>Creative Projects</h3>
-                    <p>Ideas · Experiments · Collaborations</p>
+                <div class="work-card">
+                    <div>
+                        <h3>Writing</h3>
+                        <p>Thoughts, poetry, and stories.</p>
+                    </div>
+                    <div class="work-link">EXPLORE ↗</div>
                 </div>
 
-                <div class="work">
-                    <h3>Stories</h3>
-                    <p>Personal work · Observations · Life</p>
+                <div class="work-card">
+                    <div>
+                        <h3>Ideas</h3>
+                        <p>Projects, experiments, and imagination.</p>
+                    </div>
+                    <div class="work-link">EXPLORE ↗</div>
                 </div>
 
             </div>
-
         </section>
-
-
 
         <!-- WRITING -->
 
         <section id="writing">
+            <div class="section-number">03 / Writing</div>
 
-            <div class="section-number">
-                03 — WRITING
-            </div>
-
-            <h2>
-                Words<br>
-                that stay.
-            </h2>
+            <h2>Words from my mind.</h2>
 
             <div class="writing">
 
                 <div class="writing-item">
-                    <h3>Essays & Thoughts</h3>
-                    <span>READ</span>
+                    <div>
+                        <h3>People</h3>
+                        <p>A reflection on life and human connection.</p>
+                    </div>
+                    <span class="writing-arrow">↗</span>
                 </div>
 
                 <div class="writing-item">
-                    <h3>Notes on Being Human</h3>
-                    <span>READ</span>
+                    <div>
+                        <h3>Is it me</h3>
+                        <p>A creative project exploring identity.</p>
+                    </div>
+                    <span class="writing-arrow">↗</span>
                 </div>
 
                 <div class="writing-item">
-                    <h3>Fragments</h3>
-                    <span>READ</span>
+                    <div>
+                        <h3>More to come</h3>
+                        <p>New thoughts and stories will appear here.</p>
+                    </div>
+                    <span class="writing-arrow">↗</span>
                 </div>
 
             </div>
-
         </section>
-
-
 
         <!-- CONTACT -->
 
         <section id="contact" class="contact">
+            <div class="section-number">04 / Contact</div>
 
-            <div class="section-number">
-                04 — CONTACT
-            </div>
+            <h2>Let's create something.</h2>
 
-            <h2>
-                Let's make<br>
-                something.
-            </h2>
+            <p class="contact-text">
+                For collaborations, creative projects, or just to say hello.
+            </p>
 
-            <a href="mailto:maryamtazrakine@gmail.com">
-                maryamtazrakine@gmail.com
+            <a class="email" href="mailto:your@email.com">
+                your@email.com
             </a>
-
         </section>
 
-
     </main>
-
-
 
     <!-- FOOTER -->
 
     <footer>
-
-        <div>
-            © 2026 Maryam Tazrakine
-        </div>
-
-        <div>
-            Made with curiosity.
-        </div>
-
+        <div>© 2026 Maryam Tazrakine</div>
+        <div>Made with creativity.</div>
     </footer>
-
 
 </body>
 </html>
